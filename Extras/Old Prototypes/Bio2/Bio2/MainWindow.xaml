@@ -1,0 +1,57 @@
+﻿<Window x:Class="Bio2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:local="clr-namespace:Bio2"
+        mc:Ignorable="d"
+        Title="DNA Trimmer-pairer v0.1" Height="466.479" Width="1028.64">
+    <Grid Margin="0,0,2,0" Opacity="0.8" Background="Aquamarine">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <lvc:CartesianChart Grid.ColumnSpan="2" Margin="23,34,28,173" Background="Black" LegendLocation="Bottom" >
+            <lvc:CartesianChart.Series>
+                <lvc:ScatterSeries Title="Series A"  Values="{Binding ValuesA}" />
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisY>
+                <!--setting the axis unit improved the labels rounding rule-->
+                <lvc:Axis Unit="1"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <!--setting the axis unit improved the labels rounding rule-->
+                <lvc:Axis Unit="1"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+        <RadioButton GroupName="Filetypepicker" Name="Single" Grid.ColumnSpan="2" Content="Single File Mode" HorizontalAlignment="Left" Margin="400,329,0,0" VerticalAlignment="Top" Checked="Single_Checked"/>
+        <RadioButton GroupName="Filetypepicker" Name="Two" Grid.ColumnSpan="2" Content="Two File Mode" HorizontalAlignment="Left" Margin="399,349,0,0" VerticalAlignment="Top" Checked="Two_Checked"/>
+        <RadioButton GroupName="Filetypepicker" Name="TwonPair" Grid.ColumnSpan="2" Content="Two File and Pair mode" HorizontalAlignment="Left" Margin="399,369,0,0" VerticalAlignment="Top" Checked="TwonPair_Checked"/>
+        <TextBox  Name="Statusbox"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="107" Margin="546,310,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="234" TextChanged="TextBox_TextChanged"/>
+        <Label Grid.ColumnSpan="2" Content="Select Mode" HorizontalAlignment="Left" Margin="399,308,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.468,7.715"/>
+        <TextBox Name="Windowsize" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="274,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox Name="MinByteQuality" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="274,337,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="MinWindowQuality" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="274,367,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Numoffailedwindows" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="274,395,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Grid.ColumnSpan="2" Content="Window Size" HorizontalAlignment="Left" Margin="23,316,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.645,0.962"/>
+        <Label Grid.ColumnSpan="2" Content="Minimum Nucleotide Quality" HorizontalAlignment="Left" Margin="23,342,0,0" VerticalAlignment="Top"/>
+        <Label Grid.ColumnSpan="2" Content="Minimum Window Quality (Average)" HorizontalAlignment="Left" Margin="23,367,0,0" VerticalAlignment="Top"/>
+        <Label Grid.ColumnSpan="2" Content="Number of Failed Windows allowed per read" HorizontalAlignment="Left" Margin="23,391,0,0" VerticalAlignment="Top"/>
+        <Button Grid.ColumnSpan="2" Name="ConfirmBtn" Content="Confirm" HorizontalAlignment="Left" Margin="399,389,0,0" Width="75" Height="20" VerticalAlignment="Top" Click="ConfirmBtn_Click"/>
+        <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="28" />
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="-67,83,0,0" Stroke="Black" VerticalAlignment="Top" Width="4"/>
+        <Button Grid.ColumnSpan="2" Content="Graphtest" HorizontalAlignment="Left" Margin="855,334,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+    </Grid>
+</Window>
