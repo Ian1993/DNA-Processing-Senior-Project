@@ -46,3 +46,29 @@ C:\Users\ian\Documents\GitHub\bioproject\Bio2\Bio2\bin\Debug\LiveCharts.xml
 C:\Users\ian\Documents\GitHub\bioproject\Bio2\Bio2\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\ian\Documents\GitHub\bioproject\Bio2\Bio2\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\ian\Documents\GitHub\bioproject\Bio2\Bio2\obj\Debug\Bio2.csprojAssemblyReference.cache
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2.csprojAssemblyReference.cache
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\MainWindow.g.cs
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\App.g.cs
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2_MarkupCompile.cache
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2_MarkupCompile.lref
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2.exe
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2.pdb
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\Bio2.exe.config
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\Bio2.exe
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\Bio2.pdb
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\LiveCharts.dll
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\System.Reactive.dll
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\LiveCharts.pdb
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\LiveCharts.xml
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\bin\Debug\System.Reactive.xml
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\MainWindow.baml
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2.g.resources
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2.Properties.Resources.resources
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2.csproj.GenerateResource.cache
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2.csproj.CoreCompileInputs.cache
+C:\Users\james\Source\Repos\DNA-Processing-Senior-Project5\Extras\Old Prototypes\Bio2\Bio2\obj\Debug\Bio2.csproj.CopyComplete

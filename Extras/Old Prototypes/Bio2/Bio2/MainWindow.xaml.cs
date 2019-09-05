@@ -37,7 +37,7 @@ namespace Bio2
         public MainWindow()
         {
             InitializeComponent();
-            ValuesSource = new ChartValues<ObservablePoint>();
+            //ValuesSource = new ChartValues<ObservablePoint>();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

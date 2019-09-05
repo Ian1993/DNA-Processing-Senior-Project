@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bio2", "Bio2\Bio2.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01C1EB0C-5686-44B1-9AC0-83A19120BA64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "windows", "windows\windows.csproj", "{CC0A4E56-4C77-4B23-9B3A-A84B238D8051}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{D866EA71-F230-499E-BC94-7EFA8C05EAC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D866EA71-F230-499E-BC94-7EFA8C05EAC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D866EA71-F230-499E-BC94-7EFA8C05EAC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC0A4E56-4C77-4B23-9B3A-A84B238D8051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC0A4E56-4C77-4B23-9B3A-A84B238D8051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC0A4E56-4C77-4B23-9B3A-A84B238D8051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC0A4E56-4C77-4B23-9B3A-A84B238D8051}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
