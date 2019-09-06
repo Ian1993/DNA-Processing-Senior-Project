@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Prototype_2.Properties
+namespace windows.Properties
 {
 
 

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AF710B50-6CB3-4B0A-BF70-758BD1BB12C1}</ProjectGuid>
+    <ProjectGuid>{CC0A4E56-4C77-4B23-9B3A-A84B238D8051}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Prototype_2</RootNamespace>
-    <AssemblyName>Prototype 2</AssemblyName>
+    <RootNamespace>windows</RootNamespace>
+    <AssemblyName>windows</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -77,16 +77,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Window1.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window2.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window3.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

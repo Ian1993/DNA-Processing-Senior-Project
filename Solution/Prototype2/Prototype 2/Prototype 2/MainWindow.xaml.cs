@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Prototype_2
+namespace windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,27 @@ namespace Prototype_2
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 win1 = new Window1(this);
+            win1.Show();
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Window2 win2 = new Window2(this);
+            win2.Show();
+            this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Window3 win3 = new Window3(this);
+            win3.Show();
+            this.Close();
         }
     }
 }
