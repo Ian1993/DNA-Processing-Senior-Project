@@ -25,19 +25,25 @@ namespace windows
     {
         private MainWindow mainWindow;
 
+        
+        
         public Window1(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
 
+            //create new chart value
+            ValuesA = new ChartValues<ObservablePoint>();
 
-            ChartValues<ObservablePoint> ValuesA = new ChartValues<ObservablePoint>();
-            for(var i = 0; i < 8; i++)
-            {
-                ValuesA.Add(new ObservablePoint(i+1, i + 1));
-            }
+            
+           
+            
+
+            
         }
         
+        public ChartValues<ObservablePoint> ValuesA { get; set; }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -46,6 +52,16 @@ namespace windows
             this.Close();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //THIS BUTTON IS JUST FOR DEMONSTRATION PURPOSES
+            //adds x and y to graph
+            ValuesA.Add(new ObservablePoint(0, 0));
+            ValuesA.Add(new ObservablePoint(.1, .1));
 
+            //dont really know what this is but its the only way I could get it to work and it 
+            //was in the livecharts example.
+            DataContext = this;
+        }
     }
 }
