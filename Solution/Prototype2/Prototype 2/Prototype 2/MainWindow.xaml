@@ -5,12 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Window1" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Window2" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="Window3" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <Label Content="DNA PROCESSER MAIN SCREEN" HorizontalAlignment="Left" Margin="232,175,0,0" VerticalAlignment="Top" Height="52" Width="320" FontSize="22"/>
+        Title="DNA Processor V 1.0" Height="450" Width="800">
+    <Grid Opacity=".8" Background="SlateGray">
+        <Button Content="Previewer" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Trimmer" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Tree Builder" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Label Content="DNA PROCESSOR" HorizontalAlignment="Left" Margin="108,26,0,0" VerticalAlignment="Top" Height="43" Width="343" FontSize="22" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Welcome to DNA Processor V 1.0" HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Created By James Laubach and Ian Nevills 2019" HorizontalAlignment="Left" Margin="113,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="White">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.049"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image HorizontalAlignment="Stretch" Height="260" Margin="438,26,23,133" VerticalAlignment="Stretch" Width="331" Source="dna-163466_960_720.jpg"/>
 
     </Grid>
 </Window>

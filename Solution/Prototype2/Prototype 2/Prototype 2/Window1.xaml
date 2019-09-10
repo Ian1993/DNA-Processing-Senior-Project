@@ -4,10 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:windows"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
-    <Grid>
+        Title="Window1" Height="760" Width="1024">
+    <Grid Opacity=".8" Background="SlateGray">
         <Button Content="return" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <lvc:CartesianChart Margin="23,34,28,477" Background="Black" LegendLocation="Bottom" >
+            <lvc:CartesianChart.Series>
+                <lvc:ScatterSeries Title="Series A"  Values="{Binding ValuesA}" />
+                <lvc:ScatterSeries Title="Series D"  Values="{Binding ValuesB}" />
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisY>
+                <!--setting the axis unit improved the labels rounding rule-->
+                <lvc:Axis Unit="1"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <!--setting the axis unit improved the labels rounding rule-->
+                <lvc:Axis Unit="1"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+        <lvc:CartesianChart Margin="23,257,28,258" Background="Black" LegendLocation="Bottom" RenderTransformOrigin="0.5,0.5" >
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries Title="Series B"  Values="{Binding ValuesB}" />
+                <lvc:LineSeries Title="Series C"  Values="{Binding ValuesC}" />
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisY>
+                <!--setting the axis unit improved the labels rounding rule-->
+                <lvc:Axis Unit="1"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <!--setting the axis unit improved the labels rounding rule-->
+                <lvc:Axis Unit="1"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="125,551,0,0" VerticalAlignment="Top" Width="75"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="23,529,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="23,549,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="125,526,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
