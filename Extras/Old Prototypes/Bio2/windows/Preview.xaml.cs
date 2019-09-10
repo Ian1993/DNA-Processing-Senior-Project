@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using System.Windows.Forms;
 
 namespace windows
 {
@@ -25,7 +29,15 @@ namespace windows
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+
+
+            ChartValues<ObservablePoint> ValuesA = new ChartValues<ObservablePoint>();
+            for(var i = 0; i < 8; i++)
+            {
+                ValuesA.Add(new ObservablePoint(i+1, i + 1));
+            }
         }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -33,5 +45,7 @@ namespace windows
             mainWindow.Show();
             this.Close();
         }
+
+
     }
 }
