@@ -12,7 +12,7 @@
         <Button Content="Tree Builder" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
         <Label Content="DNA PROCESSOR" HorizontalAlignment="Left" Margin="108,26,0,0" VerticalAlignment="Top" Height="43" Width="343" FontSize="22" FontWeight="Bold" Foreground="White"/>
         <Label Content="Welcome to DNA Processor V 1.0" HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Created By James Laubach and Ian Nevills 2019" HorizontalAlignment="Left" Margin="113,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <Label Content="Created By James Laubach and Ian Nevills 2019" HorizontalAlignment="Left" Margin="107,56,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="White">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

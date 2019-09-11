@@ -43,7 +43,7 @@ namespace windows
         {
 
 
-
+            
 
             for (int i = 0; i < winsize; i++)
             {   // read and store k reads into arrays
@@ -106,7 +106,7 @@ namespace windows
                 */
 
             }
-
+            /*
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(MainWindow))
@@ -115,7 +115,7 @@ namespace windows
                     //(window as MainWindow).Statusbox.Text = (window as MainWindow).Statusbox.Text + "Reading Complete" + "\n";
                 }
             }
-
+            */
 
 
 
