@@ -7,30 +7,37 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         
         mc:Ignorable="d"
-        Title="Window1" Height="800" Width="1200">
+        Title="Window1" Height="600" Width="1200" Background="White">
 
-    <Grid Margin="266,28,0,125">
+    <Grid Margin="10,10,2,5" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="427*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Content="return" HorizontalAlignment="Left" Margin="-257,-16,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="22" Grid.Row="1"/>
+        <Button Content="return" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="22" Grid.Row="1" Grid.ColumnSpan="2"/>
 
         <!-- This creates a live chart-->
-        <lvc:CartesianChart Grid.Row="1" LegendLocation="Bottom" Margin="44,61,0,0">
+        <lvc:CartesianChart Grid.Row="1" LegendLocation="Bottom" Margin="210,172,0,0" Foreground="{x:Null}" Background="White" Grid.Column="1">
             <lvc:CartesianChart.Series>
-                <lvc:ScatterSeries Title="Certainty" Values="{Binding ValuesA}" PointGeometry="{x:Static lvc:DefaultGeometries.Circle}" />
+                <lvc:ScatterSeries Title="Certainty" Values="{Binding ValuesA}" PointGeometry="{x:Static lvc:DefaultGeometries.Circle}" StrokeThickness=".5" />
             </lvc:CartesianChart.Series>
-            
+
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="number of reads" MinValue="0" MaxValue="1" Unit="1"></lvc:Axis>
+                <lvc:Axis Title="number of reads" MinValue="0" MaxValue="100" Unit="1"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
-            
+
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Title ="Reliability"  MinValue="0" MaxValue="1" Unit="1"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="-257,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Start&#xD;&#xA;" HorizontalAlignment="Left" Margin="210,145,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Height="22" Grid.Column="1"/>
+        <TextBox x:Name="fileSearch" HorizontalAlignment="Left" Height="20" Margin="0,496,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Choose a file" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button x:Name="searchForFile" Content="Browse" HorizontalAlignment="Left" Margin="90,495,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+
 
     </Grid>
 

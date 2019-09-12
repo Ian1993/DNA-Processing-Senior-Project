@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:windows"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFAEA7A7">
         <Button Content="Window1" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button Content="Window2" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <Button Content="Window3" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
