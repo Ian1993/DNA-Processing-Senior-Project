@@ -56,8 +56,9 @@ namespace windows
         {
             //THIS BUTTON IS JUST FOR DEMONSTRATION PURPOSES
             //adds x and y to graph
-            ValuesA.Add(new ObservablePoint(0, 0));
-            ValuesA.Add(new ObservablePoint(.1, .1));
+            for (int i = 0; i < 60; i++) { 
+            ValuesA.Add(new ObservablePoint(i, i*0.01));
+        }
 
             //dont really know what this is but its the only way I could get it to work and it 
             //was in the livecharts example.
