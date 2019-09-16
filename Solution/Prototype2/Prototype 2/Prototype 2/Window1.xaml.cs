@@ -20,6 +20,7 @@ namespace windows
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
+   
     public partial class Window1 : Window
     {
         private MainWindow mainWindow;
@@ -35,6 +36,13 @@ namespace windows
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Graphhelper selection = new Graphhelper();
+            selection.Single();
+
         }
     }
 }

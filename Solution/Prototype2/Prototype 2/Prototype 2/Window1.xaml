@@ -37,7 +37,7 @@
                 <lvc:Axis Unit="1"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
-        <Button Content="Confirm" HorizontalAlignment="Left" Margin="125,551,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Confirm" HorizontalAlignment="Left" Margin="125,551,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <RadioButton Content="One File" HorizontalAlignment="Left" Margin="23,529,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="Two Files" HorizontalAlignment="Left" Margin="23,549,0,0" VerticalAlignment="Top"/>
         <Button Content="Increment 500" HorizontalAlignment="Left" Margin="125,526,0,0" VerticalAlignment="Top" Width="75"/>

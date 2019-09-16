@@ -38,8 +38,10 @@ namespace windows
             s = f.fileselectordialg();
         }
 
+      
 
-        public void fileopener()
+
+        public char[][] fileopener()
         {
 
 
@@ -79,7 +81,7 @@ namespace windows
                 qual[i] = new char[x];
 
                 //read sequence
-                s.Read(sequ[i], 0, x);
+                //s.Read(sequ[i], 0, x);
 
                 //read rest of line
                 s.ReadLine();
@@ -117,7 +119,7 @@ namespace windows
             }
             */
 
-
+            return qual;
 
         }
     }
