@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Graphhelper.cs" />
     <Compile Include="Previewer.cs" />
     <Compile Include="Filemanager.cs" />
     <Compile Include="Window1.xaml.cs">
