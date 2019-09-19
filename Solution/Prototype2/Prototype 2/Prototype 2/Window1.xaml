@@ -41,6 +41,7 @@
         <RadioButton Content="One File" HorizontalAlignment="Left" Margin="23,529,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="Two Files" HorizontalAlignment="Left" Margin="23,549,0,0" VerticalAlignment="Top"/>
         <Button Content="Increment 500" HorizontalAlignment="Left" Margin="125,526,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox Name="StatusBox" HorizontalAlignment="Left" Height="127" Margin="446,476,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="542"/>
 
     </Grid>
 </Window>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
@@ -11,7 +12,7 @@ namespace windows
 {
     class Graphhelper
     {
-        public ChartValues<ObservablePoint> ValuesA { get; set;}
+        public ChartValues<ObservablePoint> ValuesA { get; set; }
         public ChartValues<ObservablePoint> ValuesB { get; set; }
         public ChartValues<ObservablePoint> ValuesC { get; set; }
         public ChartValues<ObservablePoint> ValuesD { get; set; }
@@ -45,26 +46,52 @@ namespace windows
             A.fileselector();
             qual1 = A.fileopener();
             long avg = 0;
-
-            for(int x = 0; x<100; x++)
+            foreach (Window window in Application.Current.Windows)
             {
-               for(int y = 0; y < 500; y++)
+                if (window.GetType() == typeof(Window1))
+                {
+                    (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + "Loading Data" + "\n";
+
+                }
+            }
+            for (int y = 0; y<100; y++)
+            {
+               for(int x = 0; x < 500; x++)
                 {
                     avg = avg + Convert.ToInt64(qual1[x][y]);
                 }
                 avg = avg / 500;
-                B.Add(new ObservablePoint(x,avg));
-            }
+                B.Add(new ObservablePoint(y,avg));
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.GetType() == typeof(Window1))
+                    {
+                        (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + "Average for nucleotide: " + y + " is "+ avg + "\n";
 
+                    }
+                }
+            }
+            String k = "";
             for (int x = 0; x < 500; x++)
             {
                 for (int y = 0; y < 100; y++)
                 {
                     C.Add(new ObservablePoint(y, Convert.ToInt16(qual1[x][y])));
+                    k = k + qual1[x][y];
+                    
                 }
-                
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.GetType() == typeof(Window1))
+                    {
+                        (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + "QualityString " + k + "\n";
+
+                    }
+                }
+                k = "";
                 
             }
+            
         }
         public void increasesize(Previewer A)
         {
