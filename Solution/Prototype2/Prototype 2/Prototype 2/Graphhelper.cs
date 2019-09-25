@@ -19,17 +19,22 @@ namespace windows
         public Previewer fileone;
         public Previewer filetwo;
 
-        public Graphhelper(){
-            
+        // I believe that we will need to create an overloaded constructor if they need to use four variables
+        // for now test it out with just one
+        public Graphhelper(ChartValues<ObservablePoint> A, ChartValues<ObservablePoint> B){
+            ValuesA = A;
+            ValuesB = B;
         }
     
         public void Single()
         {
-            ValuesA = new ChartValues<ObservablePoint>();
-            ValuesB = new ChartValues<ObservablePoint>();
+            
+            //ValuesA = new ChartValues<ObservablePoint>();
+            //ValuesB = new ChartValues<ObservablePoint>();
             fileone = new Previewer();
             Driver(fileone,ValuesA,ValuesB);
         }
+        // I think Single and Double will need to be turned into overloaded constructors.
         public void Double()
         {
             ValuesA = new ChartValues<ObservablePoint>();
