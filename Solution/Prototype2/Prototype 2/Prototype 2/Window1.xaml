@@ -16,11 +16,11 @@
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1"></lvc:Axis>
+                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1"></lvc:Axis>
+                <lvc:Axis Unit="1"  MinValue="0" MaxValue="100"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
         <lvc:CartesianChart Margin="23,257,28,258" Background="Black" LegendLocation="Bottom" RenderTransformOrigin="0.5,0.5" >
@@ -30,11 +30,11 @@
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1"></lvc:Axis>
+                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1"></lvc:Axis>
+                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
         <Button Content="Confirm" HorizontalAlignment="Left" Margin="125,551,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>

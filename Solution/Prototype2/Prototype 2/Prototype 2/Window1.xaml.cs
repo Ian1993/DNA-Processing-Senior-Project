@@ -23,12 +23,23 @@ namespace windows
    
     public partial class Window1 : Window
     {
+        public ChartValues<ObservablePoint> ValuesA { get; set; }
+        public ChartValues<ObservablePoint> ValuesB { get; set; }
+        //public ChartValues<ObservablePoint> ValuesC { get; set; }
+        //public ChartValues<ObservablePoint> ValuesD { get; set; }
+
         private MainWindow mainWindow;
 
         public Window1(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            DataContext = this;
+
+            //ValuesA = new ChartValues<ObservablePoint>();
+            //ValuesB = new ChartValues<ObservablePoint>();
+            //ValuesC = new ChartValues<ObservablePoint>();
+            //ValuesD = new ChartValues<ObservablePoint>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,8 +52,9 @@ namespace windows
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Graphhelper selection = new Graphhelper();
-            selection.Single();
-
+            selection.Single(/*ValuesA,ValuesB*/);
+            ValuesA = selection.returnA();
+            ValuesB = selection.returnB();
         }
     }
 }
