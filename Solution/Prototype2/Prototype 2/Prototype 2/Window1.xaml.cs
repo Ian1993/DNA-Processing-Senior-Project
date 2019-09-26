@@ -14,36 +14,33 @@ using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
-using System.Windows.Forms;
 
 namespace windows
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
+   
     public partial class Window1 : Window
     {
+        public ChartValues<ObservablePoint> ValuesA { get; set; }
+        public ChartValues<ObservablePoint> ValuesB { get; set; }
+        //public ChartValues<ObservablePoint> ValuesC { get; set; }
+        //public ChartValues<ObservablePoint> ValuesD { get; set; }
+
         private MainWindow mainWindow;
 
-        
-        
         public Window1(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            DataContext = this;
 
-            //create new chart value
-            ValuesA = new ChartValues<ObservablePoint>();
-
-            
-           
-            
-
-            
+            //ValuesA = new ChartValues<ObservablePoint>();
+            //ValuesB = new ChartValues<ObservablePoint>();
+            //ValuesC = new ChartValues<ObservablePoint>();
+            //ValuesD = new ChartValues<ObservablePoint>();
         }
-        
-        public ChartValues<ObservablePoint> ValuesA { get; set; }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -54,15 +51,10 @@ namespace windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //THIS BUTTON IS JUST FOR DEMONSTRATION PURPOSES
-            //adds x and y to graph
-            for (int i = 0; i < 60; i++) { 
-            ValuesA.Add(new ObservablePoint(i, i*0.01));
-        }
-
-            //dont really know what this is but its the only way I could get it to work and it 
-            //was in the livecharts example.
-            DataContext = this;
+            Graphhelper selection = new Graphhelper();
+            selection.Single(/*ValuesA,ValuesB*/);
+            ValuesA = selection.returnA();
+            ValuesB = selection.returnB();
         }
     }
 }
