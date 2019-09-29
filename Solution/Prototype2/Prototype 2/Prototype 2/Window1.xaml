@@ -11,8 +11,8 @@
         <Button Content="return" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <lvc:CartesianChart Margin="23,34,28,477" Background="Black" LegendLocation="Bottom" >
             <lvc:CartesianChart.Series>
-                <lvc:ScatterSeries Title="Series A"  Values="{Binding ValuesA}" />
-                <lvc:ScatterSeries Title="Series D"  Values="{Binding ValuesB}" />
+                <lvc:ScatterSeries Title="Series A"  Values="{Binding ValuesA}" PointGeometry="{x:Static lvc:DefaultGeometries.Circle}" StrokeThickness=".5"/>
+                <lvc:ScatterSeries Title="Series B"  Values="{Binding ValuesB}" PointGeometry="{x:Static lvc:DefaultGeometries.Triangle}" StrokeThickness=".5"/>
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <!--setting the axis unit improved the labels rounding rule-->
@@ -25,8 +25,8 @@
         </lvc:CartesianChart>
         <lvc:CartesianChart Margin="23,257,28,258" Background="Black" LegendLocation="Bottom" RenderTransformOrigin="0.5,0.5" >
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries Title="Series B"  Values="{Binding ValuesB}" />
                 <lvc:LineSeries Title="Series C"  Values="{Binding ValuesC}" />
+                <lvc:LineSeries Title="Series D"  Values="{Binding ValuesD}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <!--setting the axis unit improved the labels rounding rule-->

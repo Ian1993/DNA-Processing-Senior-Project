@@ -27,14 +27,15 @@ namespace windows
         {
             return B;
         }
-        public Graphhelper(){
-            
+        public Graphhelper(ChartValues<ObservablePoint> valA, ChartValues<ObservablePoint> valB){
+            A = valA;
+            B = valB;
         }
     
         public void Single(/*ChartValues<ObservablePoint> B, ChartValues<ObservablePoint> C*/)
         {
-            A = new ChartValues<ObservablePoint>();
-            B = new ChartValues<ObservablePoint>();
+            //A = new ChartValues<ObservablePoint>();
+            //B = new ChartValues<ObservablePoint>();
             fileone = new Previewer();
             Driver(fileone,A,B);
         }
@@ -50,10 +51,7 @@ namespace windows
         }
         public void Driver(Previewer A, ChartValues<ObservablePoint> B, ChartValues<ObservablePoint> C )
         {
-            Char[][] qual1;
-            A.fileselector();
-            qual1 = A.fileopener();
-            long avg = 0;
+
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(Window1))
@@ -62,6 +60,23 @@ namespace windows
 
                 }
             }
+            Char[][] qual1;
+            A.fileselector();
+            //qual1 = A.fileopener();
+            //long avg = 0;
+            A.randomSampler();
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(Window1))
+                {
+                    (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + "Loading Data" + "\n";
+
+                }
+            }
+
+
+
+            /*
             for (int y = 0; y<100; y++)
             {
                for(int x = 0; x < 500; x++)
@@ -100,6 +115,7 @@ namespace windows
                 
             }
             //DataContext = this;
+            */
 
         }
         public void increasesize(Previewer A)
@@ -115,6 +131,7 @@ namespace windows
         {
             A.userselected(B);
         }
+        
 
     }
 }

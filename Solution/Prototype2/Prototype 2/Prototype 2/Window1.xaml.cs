@@ -36,8 +36,8 @@ namespace windows
             this.mainWindow = mainWindow;
             DataContext = this;
 
-            //ValuesA = new ChartValues<ObservablePoint>();
-            //ValuesB = new ChartValues<ObservablePoint>();
+            ValuesA = new ChartValues<ObservablePoint>();
+            ValuesB = new ChartValues<ObservablePoint>();
             //ValuesC = new ChartValues<ObservablePoint>();
             //ValuesD = new ChartValues<ObservablePoint>();
         }
@@ -51,10 +51,11 @@ namespace windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Graphhelper selection = new Graphhelper();
+            Graphhelper selection = new Graphhelper(ValuesA, ValuesB);
             selection.Single(/*ValuesA,ValuesB*/);
-            ValuesA = selection.returnA();
-            ValuesB = selection.returnB();
+            DataContext = this;
+            //ValuesA = selection.returnA();
+            //ValuesB = selection.returnB();
         }
     }
 }
