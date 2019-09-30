@@ -25,6 +25,8 @@ namespace windows
             {
                 direct = dlg.FileName;
             }
+
+            
             fs = new StreamReader(direct);
 
             return fs;

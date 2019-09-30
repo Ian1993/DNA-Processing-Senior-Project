@@ -31,7 +31,7 @@ namespace windows
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

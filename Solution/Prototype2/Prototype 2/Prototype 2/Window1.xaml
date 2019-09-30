@@ -6,42 +6,51 @@
         xmlns:local="clr-namespace:windows"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Window1" Height="760" Width="1024">
+        Title="Window1" MinHeight="450" MinWidth="800"  WindowStyle="None" ResizeMode="CanResize">
     <Grid Opacity=".8" Background="SlateGray">
-        <Button Content="return" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <lvc:CartesianChart Margin="23,34,28,477" Background="Black" LegendLocation="Bottom" >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="return" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <lvc:CartesianChart Grid.Row="0" Margin="10,37,10,58" Background="Black" LegendLocation="Bottom" Grid.ColumnSpan="2" >
             <lvc:CartesianChart.Series>
                 <lvc:ScatterSeries Title="Series A"  Values="{Binding ValuesA}" PointGeometry="{x:Static lvc:DefaultGeometries.Circle}" StrokeThickness=".5"/>
                 <lvc:ScatterSeries Title="Series B"  Values="{Binding ValuesB}" PointGeometry="{x:Static lvc:DefaultGeometries.Triangle}" StrokeThickness=".5"/>
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"></lvc:Axis>
+                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"/>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"></lvc:Axis>
+                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"/>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
-        <lvc:CartesianChart Margin="23,257,28,258" Background="Black" LegendLocation="Bottom" RenderTransformOrigin="0.5,0.5" >
+        <lvc:CartesianChart Margin="10,230,10,119" Background="Black" LegendLocation="Bottom" Grid.ColumnSpan="2" Grid.RowSpan="2"  >
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries Title="Series C"  Values="{Binding ValuesC}" PointGeometry="{x:Static lvc:DefaultGeometries.Circle}" StrokeThickness=".5" />
+                <lvc:LineSeries Title="Series C" Values="{Binding ValuesC}" PointGeometry="{x:Static lvc:DefaultGeometries.Circle}" StrokeThickness=".5" />
                 <lvc:LineSeries Title="Series D"  Values="{Binding ValuesD}" PointGeometry="{x:Static lvc:DefaultGeometries.Triangle}" StrokeThickness=".5"/>
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"></lvc:Axis>
+                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"/>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"></lvc:Axis>
+                <lvc:Axis Unit="1" MinValue="0" MaxValue="100"/>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
-        <Button Content="Confirm" HorizontalAlignment="Left" Margin="125,551,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <RadioButton Content="One File" HorizontalAlignment="Left" Margin="23,529,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Two Files" HorizontalAlignment="Left" Margin="23,549,0,0" VerticalAlignment="Top"/>
-        <Button Content="Increment 500" HorizontalAlignment="Left" Margin="125,526,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox Name="StatusBox" HorizontalAlignment="Left" Height="127" Margin="446,476,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="542"/>
+        <Button Content="Confirm" HorizontalAlignment="Left" Margin="310,190,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <RadioButton Content="One File" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.381,-1.781" Grid.Row="1"/>
+        <RadioButton Content="Two Files" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Button Content="Increment 500" HorizontalAlignment="Left" Margin="310,159,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBox  Name="StatusBox" HorizontalAlignment="Left" Height="104" Margin="20,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="360" Grid.Row="1" Grid.Column="1"/>
 
     </Grid>
 </Window>

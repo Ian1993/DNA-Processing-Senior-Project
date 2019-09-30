@@ -29,21 +29,37 @@ namespace windows
         {
             Window1 win1 = new Window1(this);
             win1.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Window2 win2 = new Window2(this);
             win2.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Window3 win3 = new Window3(this);
             win3.Show();
-            this.Close();
+            this.Hide();
+        }
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult chose = MessageBox.Show("Close Data Processor?", "Data Processor exit conformation.", MessageBoxButton.OKCancel);
+            switch (chose)
+            {
+                case MessageBoxResult.OK:
+                    Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
+            }
+
+
+
         }
     }
 }
