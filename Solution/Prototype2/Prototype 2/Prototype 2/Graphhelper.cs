@@ -60,19 +60,13 @@ namespace windows
 
                 }
             }
+
             Char[][] qual1;
             A.fileselector();
             //qual1 = A.fileopener();
             //long avg = 0;
             A.randomSampler();
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(Window1))
-                {
-                    (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + "Loading Data" + "\n";
-
-                }
-            }
+            
 
 
 
