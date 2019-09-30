@@ -49,7 +49,7 @@ namespace windows
             //filetwo = new Previewer();
 
         }
-        public void Driver(Previewer A, ChartValues<ObservablePoint> B, ChartValues<ObservablePoint> C )
+        public void Driver(Previewer A, ChartValues<ObservablePoint> B, ChartValues<ObservablePoint> C)
         {
 
             foreach (Window window in Application.Current.Windows)
@@ -75,6 +75,8 @@ namespace windows
             {
                for(int x = 0; x < 500; x++)
                 {
+                    // I assume that its supposed to be 
+                    // avg = avg + Convert.ToInt64(qual1[y][x]);
                     avg = avg + Convert.ToInt64(qual1[x][y]);
                 }
                 avg = avg / 500;

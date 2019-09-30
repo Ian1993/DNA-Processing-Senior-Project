@@ -5,14 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:windows"
         mc:Ignorable="d"
-        Title="DNA Processor V 1.0" Height="450" Width="800">
-    <Grid Opacity=".8" Background="SlateGray">
-        <Button Content="Previewer" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Trimmer" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="Tree Builder" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <Label Content="DNA PROCESSOR" HorizontalAlignment="Left" Margin="108,26,0,0" VerticalAlignment="Top" Height="43" Width="343" FontSize="22" FontWeight="Bold" Foreground="White"/>
-        <Label Content="Welcome to DNA Processor V 1.0" HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Created By James Laubach and Ian Nevills 2019" HorizontalAlignment="Left" Margin="107,56,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        Title="DNA Processor V 1.0" MinHeight="450" MinWidth="800"  WindowStyle="None" ResizeMode="CanResize" >
+
+    <Grid Opacity=".8" Background="SlateGray" Margin="0,0,-8,-8">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="301*"/>
+            <ColumnDefinition Width="314*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="Previewer" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="22"/>
+        <Button Grid.Row="0" Grid.Column="0" Content="Trimmer" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Height="22"/>
+        <Button Grid.Row="0" Grid.Column="0" Content="Tree Builder" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" Height="22"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="DNA PROCESSOR" HorizontalAlignment="Left" Margin="108,26,0,0" VerticalAlignment="Top" Height="43" Width="343" FontSize="22" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="Welcome to DNA Processor V 1.0" HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="186"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="Created By James Laubach and Ian Nevills 2019" HorizontalAlignment="Left" Margin="107,56,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="White" Grid.ColumnSpan="2" Height="26" Width="199">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -22,7 +33,17 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Image HorizontalAlignment="Stretch" Height="260" Margin="438,26,23,133" VerticalAlignment="Stretch" Width="331" Source="dna-163466_960_720.jpg"/>
+        <Image Grid.Row="0" Grid.Column="1" Margin="10,27,0,105"  Source="dna-163466_960_720.jpg" Grid.RowSpan="2" />
+        <Button Grid.Row="0" Grid.Column="1" x:Name="Exit_Button" Content="Close Program" HorizontalAlignment="Right" VerticalAlignment="Top" Width="94" Click="Exit_Button_Click" Height="22" Margin="0,0,10,0">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                    <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
