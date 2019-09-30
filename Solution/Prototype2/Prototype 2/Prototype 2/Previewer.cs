@@ -13,14 +13,13 @@ namespace windows
         private int winsize = 500;
         private StreamReader s;
         //private string direct;
-        private char[][] sequ;
-        private char[][] qual;
+        private char[][] sequ = new char[8192][];
+        private char[][] qual = new char[8192][];
 
-        private string[][] sizes;
-        private string[][] seqnames = new string[max][];
+        private string[][] sizes = new string[8192][];
+        private string[][] seqnames = new string[8192][];
         string temp;
         Filemanager f;
-        private static int max = 8192;
         
 
         public void increment()
@@ -39,7 +38,6 @@ namespace windows
         {
             f = new Filemanager();
             s = f.fileselectordialg();
-            //s.Close();
 
         }
         /*
@@ -52,21 +50,28 @@ namespace windows
         {
             int x = 0;
             //s.BaseStream.Position=  
-            sizes = new string[f.z.Count][];
-            qual = new char[f.z.Count][];
-            while(x < f.z.Count-1)
-            {
-                //s = new StreamReader(f.direct);
-
-                for (int y = 0; y < f.z[x]; y++)
+            
+            while(x < f.z.Count)
+            {   
+                
+                for(int y = 0; y < f.z[x]; y++)
                 {
                     s.ReadLine();
                     s.ReadLine();
                     s.ReadLine();
                     s.ReadLine();
                 }
-                
-                /*
+                int p = 0;
+                sizes[x] = new string[512];
+                temp = s.ReadLine();
+                sizes[x] = temp.Split('=');
+
+                s.ReadLine();
+                s.ReadLine();
+                p = Convert.ToInt32(sizes[x][1]);
+                qual[x] = new char[p];
+                s.Read(qual[x], 0, p);
+                string k = new string(qual[x]);
                 foreach (Window window in Application.Current.Windows)
                 {
                     if (window.GetType() == typeof(Window1))
@@ -75,40 +80,12 @@ namespace windows
 
                     }
                 }
-                */
-                //s.Close();
-                if (s.ReadLine() == null)
-                {
-                    s.DiscardBufferedData();
-                    s.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
-                }
-                else
-                {
-                    int p = 0;
-                    sizes[x] = new string[512];
-                    temp = s.ReadLine();
-                    sizes[x] = temp.Split('=');
-
-                    s.ReadLine();
-                    s.ReadLine();
-                    p = Convert.ToInt32(sizes[x][1]);
-                    qual[x] = new char[p];
-                    s.Read(qual[x], 0, p);
-                    string k = new string(qual[x]);
-                }
-                
+                s.DiscardBufferedData();
+                s.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
                 x++;
                 //f.z.RemoveAt(0);
             }
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(Window1))
-                {
-                    (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + "qual complete" + "\n";
-
-                }
-            }
-
+            
             /*
             for (int y = 0; y < f.z[x]; y++)
             {
@@ -150,5 +127,86 @@ namespace windows
       
 
 
+        public char[][] fileopener()
+        {
+
+
+            
+
+            for (int i = 0; i < winsize; i++)
+            {   // read and store k reads into arrays
+
+
+                /*
+                for(int j=0; j<512; j++)
+                {   //initialize string arrays
+                    sizes[j] = new string[512];
+                    seqnames[j] = new string[512];
+                }
+                */
+                sizes[i] = new string[512];
+                seqnames[i] = new string[512];
+
+
+                //read name line
+                temp = s.ReadLine();
+                 
+                //split name line to find length of sequence
+                sizes[i] = temp.Split('=');
+
+                //split name line to find name of sequence
+                seqnames[i] = temp.Split(' ');
+
+                //make int x equal the length of sequence
+                int x = Convert.ToInt32(sizes[i][1]);
+
+                //initialize sequence
+                sequ[i] = new char[x];
+
+                //initualize quality
+                qual[i] = new char[x];
+
+                //read sequence
+                //s.Read(sequ[i], 0, x);
+
+                //read rest of line
+                s.ReadLine();
+
+                //read rest of line
+                s.ReadLine();
+
+                //read quality
+                s.Read(qual[i], 0, x);
+
+                //read rest of line
+                s.ReadLine();
+
+
+                /*
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.GetType() == typeof(MainWindow))
+                    {
+                        (window as MainWindow).Statusbox.Text = (window as MainWindow).Statusbox.Text + "\n" + seqnames[i][0] + " " + sizes[i][1] + "\n";
+
+                    }
+                }
+                */
+
+            }
+            /*
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(MainWindow))
+                {
+
+                    //(window as MainWindow).Statusbox.Text = (window as MainWindow).Statusbox.Text + "Reading Complete" + "\n";
+                }
+            }
+            */
+
+            return qual;
+
+        }
     }
 }

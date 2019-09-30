@@ -56,7 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Trimmer.cs" />
     <Compile Include="Graphhelper.cs" />
     <Compile Include="Previewer.cs" />
     <Compile Include="Filemanager.cs" />

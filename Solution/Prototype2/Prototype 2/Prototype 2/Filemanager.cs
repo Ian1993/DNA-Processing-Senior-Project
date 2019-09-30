@@ -13,7 +13,6 @@ namespace windows
     {
         public List<int> z = new List<int>();
         public int si;
-        public string direct = null;
 
         public StreamReader fileselectordialg()
         {
@@ -30,7 +29,7 @@ namespace windows
           
             
             StreamReader fs;
-            //string direct = null;
+            string direct = null;
             //Opens file selection dialog, inputs it into string Direct, and opens fs streamreader with direct
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.DefaultExt = ".txt";
@@ -65,7 +64,7 @@ namespace windows
 
             Random y = new Random();
             int q;
-            for (int i = 0; i < .01*(Convert.ToInt32(fnum[2]) - Convert.ToInt32(lnum[2]));i++){
+            for (int i = 0; i < .05*(Convert.ToInt32(fnum[2]) - Convert.ToInt32(lnum[2]));i++){
                 
 
 

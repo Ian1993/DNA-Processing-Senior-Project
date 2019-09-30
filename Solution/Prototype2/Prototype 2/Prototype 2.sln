@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype 2", "Prototype 2\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{73262F0F-D89F-44EF-9A3E-A3AA29D3ED0A}"
 	ProjectSection(SolutionItems) = preProject
-		Class1.cs = Class1.cs
 		Prototype 2\dna-163466_960_720.jpg = Prototype 2\dna-163466_960_720.jpg
 	EndProjectSection
 EndProject
