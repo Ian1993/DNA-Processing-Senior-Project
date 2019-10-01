@@ -36,7 +36,7 @@ namespace windows
         {
             //A = new ChartValues<ObservablePoint>();
             //B = new ChartValues<ObservablePoint>();
-            fileone = new Previewer();
+            //fileone = new Previewer();
             Driver(fileone,A,B);
         }
         public void Double()
@@ -64,7 +64,7 @@ namespace windows
             A.fileselector();
             //qual1 = A.fileopener();
             //long avg = 0;
-            A.randomSampler();
+            //A.randomSampler();
            
 
 

@@ -51,8 +51,8 @@ namespace windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Graphhelper selection = new Graphhelper(ValuesA, ValuesB);
-            selection.Single(/*ValuesA,ValuesB*/);
+            Previewer pre = new Previewer(ValuesA,ValuesB);
+            pre.runRandomSampler();
             DataContext = this;
             //ValuesA = selection.returnA();
             //ValuesB = selection.returnB();

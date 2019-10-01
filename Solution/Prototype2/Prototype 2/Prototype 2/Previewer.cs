@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows;
+using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
 
 namespace windows
 {
@@ -21,10 +24,15 @@ namespace windows
         string temp;
         Filemanager f;
         public List<int> avgs = new List<int>();
-        
+        public ChartValues<ObservablePoint> ValA { get; set; }
+        public ChartValues<ObservablePoint> ValB { get; set; }
 
-        
 
+        public Previewer(ChartValues<ObservablePoint> A, ChartValues<ObservablePoint> B)
+        {
+            ValA = A;
+            ValB = B;
+        }
         public void fileselector()
         {
             f = new Filemanager();
@@ -33,9 +41,13 @@ namespace windows
         }
         
 
+        public void runRandomSampler()
+        {
+            fileselector();
+            randomSampler(ValA, ValB);
+        }
 
-
-        public void randomSampler()
+        public void randomSampler(ChartValues<ObservablePoint> A, ChartValues<ObservablePoint> B)
         {
             int y = 0;
             for(int x = 0; x < f.z.Count; x++)
@@ -62,12 +74,15 @@ namespace windows
                     if (avgs.Count<=z)
                     {
                         avgs.Add(Convert.ToInt32(c));
+                        A.Add(new ObservablePoint(z, avgs[z]));
                     }
                     else
                     {
                         avgs[z] = avgs[z] + Convert.ToInt32(c);
                     }
+
                     z++;
+                    
                     c = s.Read();
                 }
                 y++;
