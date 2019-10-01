@@ -104,6 +104,7 @@ namespace windows
             */
             
             fs = new StreamReader(direct);
+            z.Sort();
 
             return fs;
 

@@ -65,15 +65,7 @@ namespace windows
             //qual1 = A.fileopener();
             //long avg = 0;
             A.randomSampler();
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(Window1))
-                {
-                    (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + "Loading Data" + "\n";
-
-                }
-            }
-
+           
 
 
             /*
@@ -120,19 +112,7 @@ namespace windows
             */
 
         }
-        public void increasesize(Previewer A)
-        {
-            A.increment();
-        }
-
-        public void sizereset(Previewer A)
-        {
-            A.reset();
-        }
-        public void usersize(Previewer A, int B)
-        {
-            A.userselected(B);
-        }
+       
         
 
     }

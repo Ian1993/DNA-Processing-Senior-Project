@@ -13,26 +13,17 @@ namespace windows
         private int winsize = 500;
         private StreamReader s;
         //private string direct;
-        private char[][] sequ = new char[8192][];
-        private char[][] qual = new char[8192][];
+        private char[][] sequ;
+        private char[][] qual;
 
-        private string[][] sizes = new string[8192][];
+        private string[][] sizes;
         private string[][] seqnames = new string[8192][];
         string temp;
         Filemanager f;
+        public List<int> avgs = new List<int>();
         
 
-        public void increment()
-        {
-            winsize = winsize + 500;
-        }
-        public void reset()
-        {
-            winsize = 500;
-        }
-        public void userselected(int use){
-            winsize = use;
-        } 
+        
 
         public void fileselector()
         {
@@ -40,18 +31,73 @@ namespace windows
             s = f.fileselectordialg();
 
         }
-        /*
-        public void highestReadfinder()
+        
+
+
+
+        public void randomSampler()
         {
-            s.Seek();
+            int y = 0;
+            for(int x = 0; x < f.z.Count; x++)
+            {
+                while(y < f.z[x]-y)
+                {
+                    s.ReadLine();
+                    s.ReadLine();
+                    s.ReadLine();
+                    s.ReadLine();
+                    y++;
+                }
+                s.ReadLine();
+                s.ReadLine();
+                s.ReadLine();
+                int z = 0;
+                int c=s.Read();
+                while (c != Convert.ToInt32('\n'))
+                {
+
+                    /*
+                    James Logic For putting points in graph
+                    */
+                    if (avgs.Count<=z)
+                    {
+                        avgs.Add(Convert.ToInt32(c));
+                    }
+                    else
+                    {
+                        avgs[z] = avgs[z] + Convert.ToInt32(c);
+                    }
+                    z++;
+                    c = s.Read();
+                }
+                y++;
+            }
+            for (int i = 0; i < avgs.Count; i++){
+                avgs[i] = avgs[i] / f.z.Count;
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.GetType() == typeof(Window1))
+                    {
+                        (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + avgs[i] + "\n";
+
+                    }
+                }
+
+            }
         }
-        */
+
+        /*
         public void randomSampler()
         {
             int x = 0;
-            //s.BaseStream.Position=  
-            
-            while(x < f.z.Count)
+            //s.BaseStream.Position= 
+
+
+            sequ = new char[f.z.Count][];
+            qual = new char[f.z.Count][];
+            sizes = new string[f.z.Count][];
+            /*
+            while(x < (f.z.Count)-1 x<2000)
             {   
                 
                 for(int y = 0; y < f.z[x]; y++)
@@ -68,9 +114,22 @@ namespace windows
 
                 s.ReadLine();
                 s.ReadLine();
-                p = Convert.ToInt32(sizes[x][1]);
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.GetType() == typeof(Window1))
+                    {
+                        (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + sizes[x][1] + "\n";
+
+                    }
+                }
+                if (sizes[x][1] != null)
+                {
+                    p = Convert.ToInt32(sizes[x][1]);
+                }
+                
                 qual[x] = new char[p];
                 s.Read(qual[x], 0, p);
+                
                 string k = new string(qual[x]);
                 foreach (Window window in Application.Current.Windows)
                 {
@@ -80,13 +139,23 @@ namespace windows
 
                     }
                 }
+                
                 s.DiscardBufferedData();
                 s.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
+                //s.BaseStream.Position = 0;
                 x++;
                 //f.z.RemoveAt(0);
             }
             
-            /*
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(Window1))
+                {
+                    (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + "Complete" + "\n";
+
+                }
+            }
+            
             for (int y = 0; y < f.z[x]; y++)
             {
                 s.ReadLine();
@@ -122,9 +191,11 @@ namespace windows
 
                 }
             }
-            */
+            
         }
-      
+        */
+
+
 
 
         public char[][] fileopener()
