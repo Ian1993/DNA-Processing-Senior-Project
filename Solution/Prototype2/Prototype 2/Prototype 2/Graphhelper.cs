@@ -16,8 +16,8 @@ namespace windows
         public ChartValues<ObservablePoint> B { get; set; }
         public ChartValues<ObservablePoint> C { get; set; }
         public ChartValues<ObservablePoint> D { get; set; }
-        public Previewer fileone;
-        public Previewer filetwo;
+        //public Previewer fileone;
+       // public Previewer filetwo;
 
         public ChartValues<ObservablePoint> returnA()
         {
@@ -37,7 +37,7 @@ namespace windows
             //A = new ChartValues<ObservablePoint>();
             //B = new ChartValues<ObservablePoint>();
             //fileone = new Previewer();
-            Driver(fileone,A,B);
+            //Driver(fileone,A,B);
         }
         public void Double()
         {

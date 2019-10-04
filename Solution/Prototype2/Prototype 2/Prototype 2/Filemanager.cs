@@ -12,7 +12,7 @@ namespace windows
     class Filemanager
     {
         public List<int> z = new List<int>();
-        public int si;
+        //public int si;
 
         public StreamReader fileselectordialg()
         {

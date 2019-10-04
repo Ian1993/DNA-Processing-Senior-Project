@@ -57,5 +57,10 @@ namespace windows
             //ValuesA = selection.returnA();
             //ValuesB = selection.returnB();
         }
+
+        private void CartesianChart_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
