@@ -10,20 +10,24 @@
     <Grid Opacity=".8" Background="SlateGray">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="65*"/>
-            <ColumnDefinition Width="442*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="630*"/>
+            <ColumnDefinition Width="321*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="6*" />
-            <RowDefinition Height="68*" />
-            <RowDefinition Height="73*"/>
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="280*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="29*" />
+            <RowDefinition Height="308*"/>
         </Grid.RowDefinitions>
 
-
-        
-
-        <lvc:CartesianChart Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="Black" LegendLocation="Bottom"   >
+        <lvc:CartesianChart Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Grid.ColumnSpan="2" Background="Black" LegendLocation="Bottom"   >
 
             <lvc:CartesianChart.Series>
                 <lvc:ScatterSeries Title="Series A"  Values="{Binding ValuesA}" PointGeometry="{x:Static lvc:DefaultGeometries.Circle}" StrokeThickness=".5"/>
@@ -41,7 +45,7 @@
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
 
-        <lvc:CartesianChart Grid.Row="2"  Grid.Column="1" Background="Black" LegendLocation="Bottom" >
+        <lvc:CartesianChart Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" Background="Black" LegendLocation="Bottom" Margin="0,0,0,2" >
 
             <lvc:CartesianChart.Series>
                 <lvc:LineSeries Title="Series C"  Values="{Binding ValuesC}" />
@@ -59,17 +63,18 @@
             </lvc:CartesianChart.AxisX>
 
         </lvc:CartesianChart>
-        <Button Grid.Row="0" Grid.Column="0"  Content="return"   Click="Button_Click" />
-        
-        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Confirm"  Margin="0,296,0,0"  Width="75" Click="Button_Click_1" Height="22"/>
 
-        <RadioButton Grid.Row="1" Grid.Column="0" Content="One File"  Margin="10,259,61,65"  Height="16" Width="59"/>
+        <Button Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Content="return" Click="Button_Click"   />
 
-        <RadioButton Grid.Row="1" Grid.Column="0" Content="Two Files"  Margin="10,280,56,44"  Height="16" Width="64"/>
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Confirm"    Click="Button_Click_1" />
 
-        <Button Grid.Column="0" Grid.Row="1" Content="Increment 500"  Margin="0,318,25,0"  />
+        <RadioButton Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="One File"   RenderTransformOrigin="0.5,0.545"  />
 
-        <TextBox Grid.Column="0" Grid.Row="2" Name="StatusBox" TextWrapping="Wrap" Text="TextBox" Margin="0,2,0,0"   />
+        <RadioButton Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="Two Files"    />
+
+        <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="Increment 500" FontSize="9"  />
+
+        <TextBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Name="StatusBox" TextWrapping="Wrap" Margin="0,2,0,0"   />
 
 
     </Grid>
