@@ -22,8 +22,8 @@
             <RowDefinition Height="280*"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="15*"/>
-            <RowDefinition Height="38*"/>
-            <RowDefinition Height="29*" />
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="47*" />
             <RowDefinition Height="308*"/>
         </Grid.RowDefinitions>
 
@@ -41,7 +41,7 @@
 
             <lvc:CartesianChart.AxisX>
                 <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1"  MinValue="0" MaxValue="10000"></lvc:Axis>
+                <lvc:Axis Unit="1"  MinValue="0" MaxValue="200"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
 
