@@ -26,12 +26,14 @@ namespace windows
         public List<int> avgs = new List<int>();
         public ChartValues<ObservablePoint> ValA { get; set; }
         public ChartValues<ObservablePoint> ValB { get; set; }
-
-
-        public Previewer(ChartValues<ObservablePoint> A, ChartValues<ObservablePoint> B)
+        public ChartValues<ObservablePoint> ValC { get; set; }
+        public ChartValues<ObservablePoint> ValD { get; set; }
+        public Previewer(ChartValues<ObservablePoint> A, ChartValues<ObservablePoint> B, ChartValues<ObservablePoint> C, ChartValues<ObservablePoint> D)
         {
             ValA = A;
             ValB = B;
+            ValC = C;
+            ValD = D;
         }
         public void fileselector()
         {
@@ -44,10 +46,10 @@ namespace windows
         public void runRandomSampler()
         {
             fileselector();
-            randomSampler(ValA, ValB);
+            randomSampler(ValA, ValB, ValC, ValD);
         }
 
-        public void randomSampler(ChartValues<ObservablePoint> A, ChartValues<ObservablePoint> B)
+        public void randomSampler(ChartValues<ObservablePoint> A, ChartValues<ObservablePoint> B, ChartValues<ObservablePoint> C, ChartValues<ObservablePoint> D)
         {
             int y = 0;
 
@@ -90,7 +92,7 @@ namespace windows
             }
             for (int i = 0; i < avgs.Count; i++){
                 avgs[i] = avgs[i] / f.z.Count;
-                A.Add(new ObservablePoint(i+1, avgs[i]));
+                C.Add(new ObservablePoint(i+1, avgs[i]));
                 foreach (Window window in Application.Current.Windows)
                 {
                     if (window.GetType() == typeof(Window1))

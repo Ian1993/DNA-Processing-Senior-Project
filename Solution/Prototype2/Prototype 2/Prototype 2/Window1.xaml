@@ -6,28 +6,29 @@
         xmlns:local="clr-namespace:windows"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Window1" Height="760" Width="1024" WindowStyle="ToolWindow">
+        Title="Window1" Height="1080" Width="1920" WindowState="Maximized">
     <Grid Opacity=".8" Background="SlateGray">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40*"/>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="630*"/>
-            <ColumnDefinition Width="321*"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="37"/>
+            <ColumnDefinition Width="1186*"/>
+            <ColumnDefinition Width="604*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="25*" />
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="280*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="47*" />
-            <RowDefinition Height="308*"/>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="340*"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="74*" />
+            <RowDefinition Height="485*"/>
         </Grid.RowDefinitions>
 
-        <lvc:CartesianChart Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Grid.ColumnSpan="2" Background="Black" LegendLocation="Bottom"   >
+        <lvc:CartesianChart Grid.Row="0" Grid.Column="2" Grid.RowSpan="6" Grid.ColumnSpan="2" Background="Black" LegendLocation="Bottom"   >
 
             <lvc:CartesianChart.Series>
                 <lvc:ScatterSeries Title="Series A"  Values="{Binding ValuesA}" PointGeometry="{x:Static lvc:DefaultGeometries.Circle}" StrokeThickness=".5"/>
@@ -45,7 +46,7 @@
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
 
-        <lvc:CartesianChart Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" Background="Black" LegendLocation="Bottom" Margin="0,0,0,2" >
+        <lvc:CartesianChart Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" Background="Black" LegendLocation="Bottom" Margin="0,0,0,2" >
 
             <lvc:CartesianChart.Series>
                 <lvc:LineSeries Title="Series C"  Values="{Binding ValuesC}" />
@@ -64,17 +65,17 @@
 
         </lvc:CartesianChart>
 
-        <Button Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Content="return" Click="Button_Click"   />
+        <Button Grid.Column="0" Grid.Row="0"  Content="return" Click="Button_Click"   />
 
-        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Confirm"    Click="Button_Click_1" />
+        <Button Grid.Row="6" Grid.Column="0"  Content="Confirm"    Click="Button_Click_1" />
 
-        <RadioButton Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="One File"   RenderTransformOrigin="0.5,0.545"  />
+        <RadioButton Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="One File"   RenderTransformOrigin="0.5,0.545"  />
 
-        <RadioButton Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="Two Files"    />
+        <RadioButton Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Two Files"    />
 
-        <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="Increment 500" FontSize="9"  />
+        <Button Grid.Column="0" Grid.Row="1"  Content="Increment 500" FontSize="9"  />
 
-        <TextBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Name="StatusBox" TextWrapping="Wrap" Margin="0,2,0,0"   />
+        <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="2" Name="StatusBox" TextWrapping="Wrap" Margin="0,2,0,0"   />
 
 
     </Grid>

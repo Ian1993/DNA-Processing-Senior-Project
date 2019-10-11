@@ -25,8 +25,8 @@ namespace windows
     {
         public ChartValues<ObservablePoint> ValuesA { get; set; }
         public ChartValues<ObservablePoint> ValuesB { get; set; }
-        //public ChartValues<ObservablePoint> ValuesC { get; set; }
-        //public ChartValues<ObservablePoint> ValuesD { get; set; }
+        public ChartValues<ObservablePoint> ValuesC { get; set; }
+        public ChartValues<ObservablePoint> ValuesD { get; set; }
 
         private MainWindow mainWindow;
 
@@ -38,8 +38,8 @@ namespace windows
 
             ValuesA = new ChartValues<ObservablePoint>();
             ValuesB = new ChartValues<ObservablePoint>();
-            //ValuesC = new ChartValues<ObservablePoint>();
-            //ValuesD = new ChartValues<ObservablePoint>();
+            ValuesC = new ChartValues<ObservablePoint>();
+            ValuesD = new ChartValues<ObservablePoint>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,7 +51,7 @@ namespace windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Previewer pre = new Previewer(ValuesA,ValuesB);
+            Previewer pre = new Previewer(ValuesA,ValuesB,ValuesC,ValuesD);
             pre.runRandomSampler();
             DataContext = this;
             //ValuesA = selection.returnA();
