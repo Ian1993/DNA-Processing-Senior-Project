@@ -90,7 +90,7 @@ namespace windows
             }
             for (int i = 0; i < avgs.Count; i++){
                 avgs[i] = avgs[i] / f.z.Count;
-                B.Add(new ObservablePoint(i+1, avgs[i]));
+                A.Add(new ObservablePoint(i+1, avgs[i]));
                 foreach (Window window in Application.Current.Windows)
                 {
                     if (window.GetType() == typeof(Window1))
