@@ -1,2 +1,0 @@
-module assignment2ChatServerClient {
-}
