@@ -12,7 +12,27 @@ namespace windows
     class Filemanager
     {
         public List<int> z = new List<int>();
+        string direct = null;
         //public int si;
+
+        public StreamReader trimmerselector()
+        {
+            StreamReader fs;
+            
+            //Opens file selection dialog, inputs it into string Direct, and opens fs streamreader with direct
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "Fastq Files (*.Fastq)|*.Fastq";
+
+            System.Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                direct = dlg.FileName;
+            }
+            fs = new StreamReader(direct);
+
+            return fs;
+        }
 
         public StreamReader fileselectordialg()
         {
@@ -29,7 +49,7 @@ namespace windows
           
             
             StreamReader fs;
-            string direct = null;
+            //string direct = null;
             //Opens file selection dialog, inputs it into string Direct, and opens fs streamreader with direct
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.DefaultExt = ".txt";
@@ -108,6 +128,11 @@ namespace windows
 
             return fs;
 
+        }
+
+        public string directgetter()
+        {
+            return direct;
         }
     }
 }
