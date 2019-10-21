@@ -132,7 +132,9 @@ namespace windows
 
         public string directgetter()
         {
-            return direct;
+            string direct2 = direct.Substring(0, (direct.Length) - 5);
+            direct2 = direct2 + "_trimmed.fastq";
+            return direct2;
         }
     }
 }
