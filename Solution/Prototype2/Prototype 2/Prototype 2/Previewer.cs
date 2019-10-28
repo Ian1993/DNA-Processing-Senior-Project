@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using LiveCharts;
+using LiveCharts.Wpf;
+using LiveCharts.Defaults;
 using System.IO;
 using System.Windows;
-using LiveCharts;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
 
-namespace windows
+namespace DNA.NETCORE3._0
 {
     class Previewer
     {
@@ -41,7 +39,7 @@ namespace windows
             s = f.fileselectordialg();
 
         }
-        
+
 
         public void runRandomSampler()
         {
@@ -52,10 +50,12 @@ namespace windows
         public void randomSampler(ChartValues<ObservablePoint> A, ChartValues<ObservablePoint> B, ChartValues<ObservablePoint> C, ChartValues<ObservablePoint> D)
         {
             int y = 0;
+            int p = 0;
 
-            for(int x = 0; x < f.z.Count; x++)
+            for (int x = 0; x < f.z.Count; x++)
             {
-                while(y < f.z[x]-y)
+                p = x;
+                while (y < f.z[x] - y)
                 {
                     s.ReadLine();
                     s.ReadLine();
@@ -67,37 +67,44 @@ namespace windows
                 s.ReadLine();
                 s.ReadLine();
                 int z = 0;
-                int c=s.Read();
+                int c = s.Read();
                 while (c != Convert.ToInt32('\n'))
                 {
 
                     /*
                     James Logic For putting points in graph
                     */
-                    if (avgs.Count<=z)
+                    if (avgs.Count <= z)
                     {
                         avgs.Add(Convert.ToInt32(c));
-                        
+
                     }
                     else
                     {
                         avgs[z] = avgs[z] + Convert.ToInt32(c);
                     }
 
+                    if (p % 10000 == 0)
+                    {
+                        A.Add(new ObservablePoint(z + 1, Convert.ToInt32(c)));
+                    }
+
+
                     z++;
-                    
+
                     c = s.Read();
                 }
                 y++;
             }
-            for (int i = 0; i < avgs.Count; i++){
+            for (int i = 0; i < avgs.Count; i++)
+            {
                 avgs[i] = avgs[i] / f.z.Count;
-                C.Add(new ObservablePoint(i+1, avgs[i]));
+                C.Add(new ObservablePoint(i + 1, avgs[i]));
                 foreach (Window window in Application.Current.Windows)
                 {
-                    if (window.GetType() == typeof(Window1))
+                    if (window.GetType() == typeof(PreviewWindow))
                     {
-                        (window as Window1).StatusBox.Text = (window as Window1).StatusBox.Text + "\n" + avgs[i] + "\n";
+                        (window as PreviewWindow).StatusBox.Text = (window as PreviewWindow).StatusBox.Text + "\n" + avgs[i] + "\n";
 
                     }
                 }
@@ -221,7 +228,7 @@ namespace windows
         {
 
 
-            
+
 
             for (int i = 0; i < winsize; i++)
             {   // read and store k reads into arrays
@@ -240,7 +247,7 @@ namespace windows
 
                 //read name line
                 temp = s.ReadLine();
-                 
+
                 //split name line to find length of sequence
                 sizes[i] = temp.Split('=');
 
