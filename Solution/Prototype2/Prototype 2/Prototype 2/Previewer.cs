@@ -76,12 +76,12 @@ namespace windows
                     */
                     if (avgs.Count<=z)
                     {
-                        avgs.Add(Convert.ToInt32(c)-33);
+                        avgs.Add(Convert.ToInt32(c));
                         
                     }
                     else
                     {
-                        avgs[z] = avgs[z] + Convert.ToInt32(c)-33;
+                        avgs[z] = avgs[z] + Convert.ToInt32(c);
                     }
 
                     z++;
