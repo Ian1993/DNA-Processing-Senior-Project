@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prototype_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,12 @@ namespace windows
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Hide();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Trimmer trim = new Trimmer();
+            trim.singlefile();
         }
     }
 }

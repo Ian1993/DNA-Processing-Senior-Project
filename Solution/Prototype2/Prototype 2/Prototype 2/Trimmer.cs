@@ -26,13 +26,13 @@ namespace Prototype_2
         private StreamWriter onea;
         private StreamWriter twoa;
 
-        private List<string> titleline;
-        private List<string> SequenceLine;
-        private List<string> QualityLine;
+        private List<string> titleline = new List<string>();
+        private List<string> SequenceLine = new List<string>();
+        private List<string> QualityLine = new List<string>();
 
-        private List<string> titleline2;
-        private List<string> SequenceLine2;
-        private List<string> QualityLine2;
+        private List<string> titleline2 = new List<string>();
+        private List<string> SequenceLine2 = new List<string>();
+        private List<string> QualityLine2 = new List<string>();
 
         public void SettingsStarter(int x, int y, int z)
         {
@@ -49,9 +49,15 @@ namespace Prototype_2
             one = f.trimmerselector();
             directa = f.directgetter();
             onea = new StreamWriter(directa);
-            blockreader(titleline, SequenceLine, QualityLine, one);
-            TrimmerOneFile();
+            while (!one.EndOfStream)
+            {
+                blockreader(titleline, SequenceLine, QualityLine, one);
+                TrimmerOneFile();
+                filesaver(titleline, SequenceLine, QualityLine, onea);
+            }
+            onea.Close();
             
+
         }
 
         public void twofile()
@@ -85,7 +91,7 @@ namespace Prototype_2
 
         public void filesaver(List<string> title, List<string> seq, List<string> qual, StreamWriter b)
         {
-            while (qual != null)
+            while (title.Count>0 && !seq[0].Contains(" "))
             {
                 b.WriteLine(title[0]);
                 title.RemoveAt(0);
@@ -107,53 +113,63 @@ namespace Prototype_2
 
             for(int x = 0; x < titleline.Count; x++)
             {
-                set = SequenceLine[z].ToCharArray();
-                qul = QualityLine[z].ToCharArray();
-                Boolean acceptwindows = true;
-                Boolean acceptaverage = true;
-                for(int y = 0; y < set.Length; y++)
+                if (SequenceLine[z]!=null)
                 {
 
-                    windowaverage = windowaverage + Convert.ToInt32(qul[y]);
+                    set = SequenceLine[z].ToCharArray();
+                    qul = QualityLine[z].ToCharArray();
+                    Boolean acceptwindows = true;
+                    Boolean acceptaverage = true;
+                    for (int y = 0; y < set.Length; y++)
+                    {
 
-                    if (Convert.ToInt32(qul[y]) < minqual)
-                    {
-                        qul[y] = Convert.ToChar(0);
-                        set[y] = 'n';
-                    }
-                    if(y!=0 && (window % y) == 0)
-                    {
-                        average = windowaverage;
-                        windowaverage = windowaverage / window;
-                        
-                        if (average < minwin)
+                        windowaverage = windowaverage + Convert.ToInt32(qul[y]);
+
+                        if (Convert.ToInt32(qul[y]) < minqual)
                         {
-                            titleline.RemoveAt(z);
-                            SequenceLine.RemoveAt(z);
-                            QualityLine.RemoveAt(z);
-                            z = z - 1;
-                            acceptwindows = false;
-                            break;
+                            qul[y] = Convert.ToChar(0);
+                            set[y] = 'n';
+                        }
+                        if (y != 0 && (window % y) == 0)
+                        {
+                            average = windowaverage;
+                            windowaverage = windowaverage / window;
+
+                            if (windowaverage < minwin)
+                            {
+                                titleline.RemoveAt(z);
+                                SequenceLine.RemoveAt(z);
+                                QualityLine.RemoveAt(z);
+                                //z = z - 1;
+                                acceptwindows = false;
+                                break;
+                            }
+
                         }
 
+
+
+                    }
+                    average = average / set.Length;
+                    if (average < minqual)
+                    {
+                        titleline.RemoveAt(z);
+                        SequenceLine.RemoveAt(z);
+                        QualityLine.RemoveAt(z);
+                        //z = z - 1;
+                        acceptaverage = false;
                     }
 
-                   
-
-                }
-                average = average / set.Length;
-                if (average < minqual)
-                {
-                    acceptaverage = true;
-                }
-                if(acceptwindows == true && acceptaverage == true)
-                {
-                    string t = Convert.ToString(qul);
-                    string u = Convert.ToString(set);
-                    SequenceLine[z] = u;
-                    QualityLine[z] = t;
-                }
-                z++;
+                    if (acceptwindows == true && acceptaverage == true)
+                    {
+                        string t = Convert.ToString(qul);
+                        string u = Convert.ToString(set);
+                        SequenceLine[z] = u;
+                        QualityLine[z] = t;
+                        z++;
+                    }
+                }   
+                
             }
 
 
