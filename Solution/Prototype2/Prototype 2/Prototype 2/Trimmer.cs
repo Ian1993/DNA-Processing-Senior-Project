@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using windows;
 
-namespace Prototype_2
+namespace windows
 {
     class Trimmer
     {
 
         private int window = 50;
-        private int minwin = 50;
+        private int minwin = 10;
         private int minqual= 50;
         private int blocksize = 500;
         private StreamReader one;
@@ -73,9 +73,16 @@ namespace Prototype_2
             directb = y.directgetter();
             onea = new StreamWriter(directa);
             twoa = new StreamWriter(directb);
-            blockreader(titleline, SequenceLine, QualityLine, one);
-            blockreader(titleline2, SequenceLine2, QualityLine2, two);
-            TrimmerTwoFIle();
+
+            while (!one.EndOfStream && !two.EndOfStream)
+            {
+                blockreader(titleline, SequenceLine, QualityLine, one);
+                blockreader(titleline2, SequenceLine2, QualityLine2, two);
+                TrimmerTwoFIle();
+                filesaver(titleline, SequenceLine, QualityLine, onea);
+                filesaver(titleline2, SequenceLine2, QualityLine2, twoa);
+            }
+            
         }
 
         public void blockreader(List<string> title, List<string> seq, List<string> qual, StreamReader a)
@@ -91,7 +98,7 @@ namespace Prototype_2
 
         public void filesaver(List<string> title, List<string> seq, List<string> qual, StreamWriter b)
         {
-            while (title.Count>0 && !seq[0].Contains(" "))
+            while (title.Count>0 && title[0]!=null)
             {
                 b.WriteLine(title[0]);
                 title.RemoveAt(0);
@@ -123,12 +130,12 @@ namespace Prototype_2
                     for (int y = 0; y < set.Length; y++)
                     {
 
-                        windowaverage = windowaverage + Convert.ToInt32(qul[y]);
+                        windowaverage = windowaverage + (Convert.ToInt32(qul[y])-33);
 
-                        if (Convert.ToInt32(qul[y]) < minqual)
+                        if ((Convert.ToInt32(qul[y])-33) < minqual)
                         {
-                            qul[y] = Convert.ToChar(0);
-                            set[y] = 'n';
+                            qul[y] = '!';
+                            set[y] = 'W';
                         }
                         if (y != 0 && (window % y) == 0)
                         {
@@ -151,13 +158,14 @@ namespace Prototype_2
 
                     }
                     average = average / set.Length;
-                    if (average < minqual)
+                    if (average < minqual && acceptwindows == true)
                     {
                         titleline.RemoveAt(z);
                         SequenceLine.RemoveAt(z);
                         QualityLine.RemoveAt(z);
                         //z = z - 1;
                         acceptaverage = false;
+                        //break;
                     }
 
                     if (acceptwindows == true && acceptaverage == true)
@@ -177,6 +185,93 @@ namespace Prototype_2
 
         public void TrimmerTwoFIle()
         {
+            char[] set = null;
+            char[] set1 = null;
+            char[] qul = null;
+            char[] qul1 = null;
+            int z = 0;
+            int average = 0;
+            int windowaverage = 0;
+            int average2 = 0;
+            int windowaverage2 = 0;
+            if (titleline.Count < titleline2.Count)
+            {
+                for (int x = 0; x < titleline.Count; x++)
+                {
+                    if (SequenceLine[z] != null && SequenceLine2[z]!=null)
+                    {
+
+                        set = SequenceLine[z].ToCharArray();
+                        qul = QualityLine[z].ToCharArray();
+
+                        set1 = SequenceLine[z].ToCharArray(); 
+                        qul1 = QualityLine2[z].ToCharArray();
+
+                        Boolean acceptwindows = true;
+                        Boolean acceptaverage = true;
+                        for (int y = 0; y < set.Length; y++)
+                        {
+
+                            windowaverage = windowaverage + (Convert.ToInt32(qul[y]) - 33);
+
+                            if ((Convert.ToInt32(qul[y]) - 33) < minqual)
+                            {
+                                qul[y] = '!';
+                                set[y] = 'n';
+                            }
+
+
+                            if ((Convert.ToInt32(qul1[y]) - 33) < minqual)
+                            {
+                                qul1[y] = '!';
+                                set1[y] = 'n';
+                            }
+
+
+                            if (y != 0 && (window % y) == 0)
+                            {
+                                average = windowaverage;
+                                windowaverage = windowaverage / window;
+
+                                if (windowaverage < minwin)
+                                {
+                                    titleline.RemoveAt(z);
+                                    SequenceLine.RemoveAt(z);
+                                    QualityLine.RemoveAt(z);
+                                    //z = z - 1;
+                                    acceptwindows = false;
+                                    break;
+                                }
+
+                            }
+
+
+
+                        }
+                        average = average / set.Length;
+                        if (average < minqual)
+                        {
+                            titleline.RemoveAt(z);
+                            SequenceLine.RemoveAt(z);
+                            QualityLine.RemoveAt(z);
+                            //z = z - 1;
+                            acceptaverage = false;
+                        }
+
+                        if (acceptwindows == true && acceptaverage == true)
+                        {
+                            string t = Convert.ToString(qul);
+                            string u = Convert.ToString(set);
+                            SequenceLine[z] = u;
+                            QualityLine[z] = t;
+                            z++;
+                        }
+                    }
+                }
+            
+
+            }
+
 
         }
     }

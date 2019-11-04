@@ -37,7 +37,7 @@ namespace windows
         public StreamReader fileselectordialg()
         {
 
-            FileStream fl;
+            StreamReader fl;
             Byte[] first = new Byte[512];
             Byte[] last = new Byte[512];
             string[] temp= new string[8192];
@@ -60,35 +60,46 @@ namespace windows
             {
                 direct = dlg.FileName;
             }
-            fl = File.OpenRead(direct);
-            fl.Read(first, 0, 300);
+            int counter = 0;
+            fl = new StreamReader(direct);
 
-            temp = Encoding.UTF8.GetString(first, 0, first.Length).Split('=','\n');
-            lnum = Encoding.UTF8.GetString(first, 0, first.Length).Split('.', ' ');
+            while (!fl.EndOfStream)
+            {
+                fl.ReadLine();
+                fl.ReadLine();
+                fl.ReadLine();
+                fl.ReadLine();
+                counter++;
+
+            }
+            //fl.Read(first, 0, 300);
+
+            //temp = Encoding.UTF8.GetString(first, 0, first.Length).Split('=','\n');
+            //lnum = Encoding.UTF8.GetString(first, 0, first.Length).Split('.', ' ');
 
             //split name line to find name of sequence
             //seqnames[i] = temp.Split(' ');
 
             //make int x equal the length of sequence
-            int x = Convert.ToInt32(temp[1]);
+            //int x = Convert.ToInt32(temp[1]);
 
 
 
                     
 
-            fl.Seek(-2*x, SeekOrigin.End);
-            fl.Read(last,0, 300);
-            fl.Close();
-            fnum = Encoding.UTF8.GetString(last, 0, last.Length).Split('.', ' ');
+            //fl.Seek(-2*x, SeekOrigin.End);
+            //fl.Read(last,0, 300);
+            //fl.Close();
+            //fnum = Encoding.UTF8.GetString(last, 0, last.Length).Split('.', ' ');
 
 
             Random y = new Random();
             int q;
-            for (int i = 0; i < .05*(Convert.ToInt32(fnum[2]) - Convert.ToInt32(lnum[2]));i++){
+            for (int i = 0; i < .05*counter;i++){
                 
 
 
-                q = y.Next(Convert.ToInt32(lnum[2]), Convert.ToInt32(fnum[2]));
+                q = y.Next(1,counter);
                 //Predicate<int> t = q;
                 if (z.IndexOf(q)==-1)
                 {
