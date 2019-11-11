@@ -11,10 +11,12 @@ namespace windows
     class Trimmer
     {
 
-        private int window = 50;
+        private int window = 20;
         private int minwin = 10;
-        private int minqual= 50;
+        private int minqual= 35;
         private int blocksize = 500;
+        private int skew = 33;
+        private int failedwindows = 2;
         private StreamReader one;
         private StreamReader two;
         private Filemanager f;
@@ -117,6 +119,7 @@ namespace windows
             int z = 0;
             int average = 0;
             int windowaverage = 0;
+            int windowcount = 0;
 
             for(int x = 0; x < titleline.Count; x++)
             {
@@ -130,16 +133,18 @@ namespace windows
                     for (int y = 0; y < set.Length; y++)
                     {
 
-                        windowaverage = windowaverage + (Convert.ToInt32(qul[y])-33);
-
-                        if ((Convert.ToInt32(qul[y])-33) < minqual)
+                        windowaverage = windowaverage + (Convert.ToInt32(qul[y])-skew);
+                        average = average + (Convert.ToInt32(qul[y]) - skew);
+                        if ((Convert.ToInt16(qul[y])-skew) < minqual)
                         {
                             qul[y] = '!';
                             set[y] = 'W';
                         }
-                        if (y != 0 && (window % y) == 0)
+                        
+                        
+                        if (y != 0 && (y % window) == 0)
                         {
-                            average = windowaverage;
+                            //average = windowaverage;
                             windowaverage = windowaverage / window;
 
                             if (windowaverage < minwin)
@@ -148,15 +153,21 @@ namespace windows
                                 SequenceLine.RemoveAt(z);
                                 QualityLine.RemoveAt(z);
                                 //z = z - 1;
-                                acceptwindows = false;
-                                break;
+                                windowcount++;
+                                if (windowcount>=failedwindows) {
+                                    acceptwindows = false;
+                                    break;
+                                }
+                                
                             }
 
                         }
+                        
 
 
 
                     }
+                    
                     average = average / set.Length;
                     if (average < minqual && acceptwindows == true)
                     {
@@ -167,15 +178,18 @@ namespace windows
                         acceptaverage = false;
                         //break;
                     }
+                    
 
                     if (acceptwindows == true && acceptaverage == true)
                     {
-                        string t = Convert.ToString(qul);
-                        string u = Convert.ToString(set);
+                        string t = new String(qul);
+                        string u = new String(set);
                         SequenceLine[z] = u;
                         QualityLine[z] = t;
                         z++;
                     }
+                    qul = null;
+                    set = null;
                 }   
                 
             }
