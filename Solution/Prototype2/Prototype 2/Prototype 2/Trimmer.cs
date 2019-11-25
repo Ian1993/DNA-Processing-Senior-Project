@@ -200,93 +200,117 @@ namespace windows
         public void TrimmerTwoFIle()
         {
             char[] set = null;
-            char[] set1 = null;
             char[] qul = null;
+            char[] set1 = null;
             char[] qul1 = null;
             int z = 0;
             int average = 0;
             int windowaverage = 0;
-            int average2 = 0;
-            int windowaverage2 = 0;
-            if (titleline.Count < titleline2.Count)
+            int windowcount = 0;
+            int average1 = 0;
+            int windowaverage1 = 0;
+            int windowcount1 = 0;
+
+            for (int x = 0; x < titleline.Count; x++)
             {
-                for (int x = 0; x < titleline.Count; x++)
+                if (SequenceLine[z] != null && SequenceLine2[z] != null)
                 {
-                    if (SequenceLine[z] != null && SequenceLine2[z]!=null)
+
+                    set = SequenceLine[z].ToCharArray();
+                    qul = QualityLine[z].ToCharArray();
+                    set1 = SequenceLine2[z].ToCharArray();
+                    qul1 = QualityLine2[z].ToCharArray();
+                    Boolean acceptwindows = true;
+                    Boolean acceptaverage = true;
+                    for (int y = 0; y < set.Length; y++)
                     {
 
-                        set = SequenceLine[z].ToCharArray();
-                        qul = QualityLine[z].ToCharArray();
-
-                        set1 = SequenceLine[z].ToCharArray(); 
-                        qul1 = QualityLine2[z].ToCharArray();
-
-                        Boolean acceptwindows = true;
-                        Boolean acceptaverage = true;
-                        for (int y = 0; y < set.Length; y++)
+                        windowaverage = windowaverage + (Convert.ToInt32(qul[y]) - skew);
+                        windowaverage1 = windowaverage1 + (Convert.ToInt32(qul1[y]) - skew);
+                        average = average + (Convert.ToInt32(qul[y]) - skew);
+                        average1 = average1 + (Convert.ToInt32(qul1[y]) - skew);
+                        if (((Convert.ToInt16(qul[y]) - skew) < minqual))
                         {
+                            qul[y] = '!';
+                            set[y] = 'W';
+                        }
 
-                            windowaverage = windowaverage + (Convert.ToInt32(qul[y]) - 33);
+                        if (((Convert.ToInt16(qul1[y]) - skew) < minqual))
+                        {
+                            qul[y] = '!';
+                            set[y] = 'W';
+                        }
 
-                            if ((Convert.ToInt32(qul[y]) - 33) < minqual)
+
+                        if (y != 0 && (y % window) == 0)
+                        {
+                            //average = windowaverage;
+                            windowaverage = windowaverage / window;
+                            windowaverage1 = windowaverage1 / window;
+                            if (windowaverage < minwin ||windowaverage1 < minwin)
                             {
-                                qul[y] = '!';
-                                set[y] = 'n';
-                            }
-
-
-                            if ((Convert.ToInt32(qul1[y]) - 33) < minqual)
-                            {
-                                qul1[y] = '!';
-                                set1[y] = 'n';
-                            }
-
-
-                            if (y != 0 && (window % y) == 0)
-                            {
-                                average = windowaverage;
-                                windowaverage = windowaverage / window;
-
-                                if (windowaverage < minwin)
+                                titleline.RemoveAt(z);
+                                SequenceLine.RemoveAt(z);
+                                QualityLine.RemoveAt(z);
+                                titleline2.RemoveAt(z);
+                                SequenceLine2.RemoveAt(z);
+                                QualityLine2.RemoveAt(z);
+                                //z = z - 1;
+                                windowcount++;
+                                if (windowcount >= failedwindows)
                                 {
-                                    titleline.RemoveAt(z);
-                                    SequenceLine.RemoveAt(z);
-                                    QualityLine.RemoveAt(z);
-                                    //z = z - 1;
                                     acceptwindows = false;
                                     break;
                                 }
 
                             }
 
-
-
-                        }
-                        average = average / set.Length;
-                        if (average < minqual)
-                        {
-                            titleline.RemoveAt(z);
-                            SequenceLine.RemoveAt(z);
-                            QualityLine.RemoveAt(z);
-                            //z = z - 1;
-                            acceptaverage = false;
                         }
 
-                        if (acceptwindows == true && acceptaverage == true)
-                        {
-                            string t = Convert.ToString(qul);
-                            string u = Convert.ToString(set);
-                            SequenceLine[z] = u;
-                            QualityLine[z] = t;
-                            z++;
-                        }
+
+
+
                     }
+
+                    average = average / set.Length;
+                    if ((average < minqual && acceptwindows == true) || (average1 < minqual && acceptwindows == true))
+                    {
+                        titleline.RemoveAt(z);
+                        SequenceLine.RemoveAt(z);
+                        QualityLine.RemoveAt(z);
+                        titleline2.RemoveAt(z);
+                        SequenceLine2.RemoveAt(z);
+                        QualityLine2.RemoveAt(z);
+                        //z = z - 1;
+                        acceptaverage = false;
+                        //break;
+                    }
+
+
+                    if (acceptwindows == true && acceptaverage == true)
+                    {
+                        string t = new String(qul);
+                        string u = new String(set);
+                        SequenceLine[z] = u;
+                        QualityLine[z] = t;
+                        string i = new String(qul1);
+                        string j = new String(set1);
+                        SequenceLine2[z] = i;
+                        QualityLine2[z] = i;
+                        z++;
+                    }
+                    qul = null;
+                    set = null;
+                    qul1 = null;
+                    set1 = null;
                 }
-            
 
             }
 
 
         }
+
+
+        }
     }
-}
+
